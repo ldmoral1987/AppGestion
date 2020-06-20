@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<meta name="description" content="">
+    	<meta name="author" content="Luis del Moral Martínez">
+		<meta charset="ISO-8859-1">
+		<title>AppGestion</title>
+		<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="login-view.css" rel="stylesheet">
+		<script src="/webjars/jquery/jquery.min.js"></script>
+		<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	    <form class="form-signin" method="post" th:action="@{/account/login}">
+	      <div class="text-center mb-4">
+	        <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+	        <h1 class="h3 mb-3 font-weight-normal">App Inventario</h1>
+	        <p>Una aplicación de ejemplo Spring MVC</p>
+	      </div>
+	
+	      <div class="form-label-group">
+	        <input type="text" id="username" class="form-control" placeholder="Usuario" required autofocus>
+	        <label for="inputUser"></label>
+	      </div>
+	
+	      <div class="form-label-group">
+	        <input type="password" id="password" class="form-control" placeholder="Contraseña" required>
+	        <label for="inputPassword"></label>
+	      </div>
+	
+	      <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
+	    </form>
+	</body>
+</html>

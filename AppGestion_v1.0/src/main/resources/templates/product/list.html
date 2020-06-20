@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<meta name="description" content="">
+    	<meta name="author" content="Luis del Moral Martínez">
+		<meta charset="ISO-8859-1">
+		<title>AppGestion</title>
+		<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/starter-template.css" rel="stylesheet">
+	</head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="/index"><img src="/img/home.png"/>AppGestion</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/product/list"><img width="16px" src="/img/product.png"/>&nbsp;Productos</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img width="16px" src="/img/gear.png"/>&nbsp;Acciones</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="/product/insert"><img width="16px" src="/img/add.png"/>&nbsp;Añadir producto</a>
+              <a class="dropdown-item" href="/product/delete"><img width="16px" src="/img/remove.png"/>&nbsp;Borrar producto</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+    	<div class="listado">
+    		<h1>Listado de productos</h1>
+    		<div class="table-responsive">
+	    		<table class="table table-striped">
+	    			<thead>
+	    				<tr> 
+	    					<th>ID</th>
+	    					<th>Referencia</th>
+	    					<th>Nombre</th>
+	    					<th>Categoría</th>
+	    					<th>PVP</th>
+	    					<th>Operaciones</th>
+	    				</tr>
+	    			</thead>
+	    			<tbody>
+	    				<tr th:each="product: ${listProducts}">
+	    					<td th:text="${product.id}">No hay datos</td>
+	    					<td th:text="${product.reference}">No hay datos</td>
+	    					<td th:text="${product.name}">No hay datos</td>
+	    					<td th:text="${product.category}">No hay datos</td>
+	    					<td th:text="${product.price + ' €'}">No hay datos</td>
+	    					<td>
+	    						<a th:href="@{/product/edit/{id}(id=${product.id})}"><img width="16px" src="/img/edit.png"/></a>
+	    						<a th:href="@{/product/delete/{id}(id=${product.id})}" th:onclick="return confirmarBorrado();"><img width="16px" src="/img/delete.png"/></a>
+	    					</td>
+	    				</tr>
+	    			</tbody>
+	    		</table>
+	    	</div>
+    	</div>
+    </div>
+    
+    <script src="/js/borrado.js"></script>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

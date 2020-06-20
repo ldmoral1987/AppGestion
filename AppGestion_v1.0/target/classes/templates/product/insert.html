@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<meta name="description" content="">
+    	<meta name="author" content="Luis del Moral Martínez">
+		<meta charset="ISO-8859-1">
+		<title>AppGestion</title>
+		<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/starter-template.css" rel="stylesheet">
+	</head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="/index"><img src="/img/home.png"/>AppGestion</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/product/list"><img width="16px" src="/img/product.png"/>&nbsp;Productos</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img width="16px" src="/img/gear.png"/>&nbsp;Acciones</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="/product/insert"><img width="16px" src="/img/add.png"/>&nbsp;Añadir producto</a>
+              <a class="dropdown-item" href="/product/delete"><img width="16px" src="/img/remove.png"/>&nbsp;Borrar producto</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+    	<div class="listado">
+    		<h1>Nuevo producto / editar producto</h1>
+ 			<div class="row">
+ 				<div class="col-md-offset-2 col-md-8">
+ 					<form method="post" action="#" th:action="${productForm.id != 0} ? @{/product/edit/submit} : @{/product/insert/submit}" th:object="${productForm}">
+ 					
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="id">ID</label>  
+						  <div class="col-md-4">
+						  <input id="id" type="text" value="" class="form-control input-md" required="" th:field="*{id}" th:attrappend="readonly=${productForm.id != 0} ? 'readonly' : null">
+						    
+						  </div>
+						</div>
+						
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="referencia">Referencia</label>  
+						  <div class="col-md-4">
+						  <input id="referencia" type="text" value="" class="form-control input-md" required="" th:field="*{reference}">
+						    
+						  </div>
+						</div>
+						
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="nombre">Nombre</label>  
+						  <div class="col-md-4">
+						  <input id="nombre" type="text" class="form-control input-md" required="" th:field="*{name}">
+						    
+						  </div>
+						</div>
+						
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="categoria">Categoría</label>  
+						  <div class="col-md-4">
+						  <input id="categoria" type="text" class="form-control input-md" required="" th:field="*{category}">
+						    
+						  </div>
+						</div>
+						
+						<div class="form-group" th:classappend="${#fields.hasErrors('price')} ? 'has-error'">
+						  <label class="col-md-4 control-label" for="nombre">PVP</label>  
+						  <div class="col-md-4">
+						  <input id="nombre" type="text" value="" class="form-control input-md" required="" th:field="*{price}">
+						    
+						  </div>
+						  <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="help-block" id="name-error">errores</span>
+						</div>	
+										
+						<button type="submit" class="btn btn-default">Enviar</button>
+ 					</form>
+ 				</div>
+ 			</div>
+    	</div>
+    </div>
+    
+    <script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
