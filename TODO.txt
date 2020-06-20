@@ -1,0 +1,13 @@
+AppGestion v1.0 TODO list
+-----------------------------------------------------------
++ Añadir nuevos atributos a la entidad Empleado
+	+ Departamento
+	+ Fotografía
++ Añadir funcionalidad de Inventario
++ Añadir funcionalidad de Clientes
++ Añadir funcionalidad de Proveedores
++ Añadir funcionalidad de Acerca De
++ Añadir funcionalidad de Salir 
+	+ Por ahora la sesión finaliza al cerrar el navegador
++ Creación de sesiones
++ Personalización del formulario de login
