@@ -1,4 +1,4 @@
-#AppGestion v1.0 TODO list
+AppGestion v1.0 TODO list
 -----------------------------------------------------------
 + Añadir nuevos atributos a la entidad Empleado
 	+ Departamento
